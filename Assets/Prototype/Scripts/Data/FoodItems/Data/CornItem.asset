@@ -9,9 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1fe4d6f815c0724b957c47b983edd69, type: 3}
+  m_Script: {fileID: 11500000, guid: d2ce5b4e2f7ba704da3a40669b907a43, type: 3}
   m_Name: CornItem
   m_EditorClassIdentifier: Assembly-CSharp::FoodItemData
-  foodItemType: 0
-  prefab: {fileID: 0}
-  icon: {fileID: 21300000, guid: 15cefcaafc61dbc4aa51fdb296da1557, type: 3}
+  itemType: 0
+  itemStagesSprites:
+  - {fileID: -1394828466, guid: 1d53b7f6292005f45bdeaea4afed0a19, type: 3}
+  - {fileID: -475663519, guid: 1d53b7f6292005f45bdeaea4afed0a19, type: 3}
+  - {fileID: 1012336668, guid: 1d53b7f6292005f45bdeaea4afed0a19, type: 3}
+  icon: {fileID: 21300000, guid: a7f7711330d474a43b73af994e203c97, type: 3}

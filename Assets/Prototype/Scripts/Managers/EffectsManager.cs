@@ -5,11 +5,12 @@ public class EffectsManager : MonoBehaviour
 {
     public static EffectsManager Instance { get; private set; }
 
+    public ItemPickEffectBehaviour itemPickEffectPrefab;
+
     private void Awake()
     {
         Instance = this;
     }
-    public ItemPickEffectBehaviour itemPickEffectPrefab;
 
     public void SpawnItemPickerEffect(Sprite itemSprite, Vector3 itemPos)
     {
@@ -17,9 +18,5 @@ public class EffectsManager : MonoBehaviour
         itemPickEffect.transform.position = itemPos;
         itemPickEffect.Initialize(itemSprite);
         itemPickEffect.gameObject.SetActive(true);
-        DOVirtual.DelayedCall(5.0f, () =>
-        {
-            Destroy(itemPickEffect.gameObject);
-        });
     }
 }

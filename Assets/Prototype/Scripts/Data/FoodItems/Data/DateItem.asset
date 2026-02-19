@@ -9,8 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1fe4d6f815c0724b957c47b983edd69, type: 3}
+  m_Script: {fileID: 11500000, guid: d2ce5b4e2f7ba704da3a40669b907a43, type: 3}
   m_Name: DateItem
   m_EditorClassIdentifier: Assembly-CSharp::FoodItemData
-  foodItemType: 1
-  icon: {fileID: 21300000, guid: 0103a550f8b9d13479b1756fe18863a5, type: 3}
+  itemType: 1
+  itemStagesSprites:
+  - {fileID: 1849112007, guid: ff74d3f9307f9194a92feee603bc1aea, type: 3}
+  - {fileID: -581701906, guid: ff74d3f9307f9194a92feee603bc1aea, type: 3}
+  - {fileID: 609449988, guid: ff74d3f9307f9194a92feee603bc1aea, type: 3}
+  icon: {fileID: 21300000, guid: cd5d0881105c95b42ac5d94345558de5, type: 3}

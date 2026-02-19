@@ -3,7 +3,7 @@ using UnityEngine.EventSystems;
 
 public class ItemSelectButton : DragableBase
 {
-    public ItemDataSO itemData; // Assign your building here
+    public PlaceableItemsDataSO itemData; // Assign your building here
 
     private PlacementManager manager;
 

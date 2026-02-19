@@ -1,14 +1,23 @@
 {
   "dependencies": {
-    "com.simonoliver.unityfigma": {
-      "version": "https://github.com/simonoliver/UnityFigmaBridge.git",
+    "com.coffee.ui-effect": {
+      "version": "https://github.com/mob-sakai/UIEffect.git?path=Packages/src",
       "depth": 0,
       "source": "git",
       "dependencies": {
-        "com.unity.nuget.newtonsoft-json": "2.0.1-preview.1",
-        "com.unity.textmeshpro": "2.0.1"
+        "com.unity.ugui": "1.0.0"
       },
-      "hash": "9bc41a73c7eb7617f5cf4e4975330842da922f56"
+      "hash": "70937d2ce39b61c29c4feb4d13642c65bb553d6c"
+    },
+    "com.coffee.ui-particle": {
+      "version": "https://github.com/mob-sakai/ParticleEffectForUGUI.git#4.9.0",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.unity.ugui": "1.0.0",
+        "com.unity.modules.particlesystem": "1.0.0"
+      },
+      "hash": "4dfcb9075e166fa53fee5decc51975bdc247cdad"
     },
     "com.unity.2d.common": {
       "version": "12.0.1",
@@ -168,7 +177,7 @@
     },
     "com.unity.nuget.newtonsoft-json": {
       "version": "3.2.2",
-      "depth": 1,
+      "depth": 2,
       "source": "registry",
       "dependencies": {},
       "url": "https://packages.unity.com"
@@ -258,14 +267,6 @@
         "com.unity.modules.jsonserialize": "1.0.0"
       },
       "url": "https://packages.unity.com"
-    },
-    "com.unity.textmeshpro": {
-      "version": "5.0.0",
-      "depth": 1,
-      "source": "builtin",
-      "dependencies": {
-        "com.unity.ugui": "2.0.0"
-      }
     },
     "com.unity.timeline": {
       "version": "1.8.10",

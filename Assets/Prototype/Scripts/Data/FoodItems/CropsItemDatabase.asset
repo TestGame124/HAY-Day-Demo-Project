@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47eda8e400c859d4594ec9b44315ea88, type: 3}
+  m_Name: CropsItemDatabase
+  m_EditorClassIdentifier: Assembly-CSharp::FoodItemDatabase
+  Products:
+  - {fileID: 11400000, guid: 0e83f04e4c5adf94b9950ba4fbe01021, type: 2}
+  - {fileID: 11400000, guid: 1ce538f4a2d99cc49868907e9b83717d, type: 2}
