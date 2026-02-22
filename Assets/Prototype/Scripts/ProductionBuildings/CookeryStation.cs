@@ -5,7 +5,14 @@ using UnityEngine;
 
 public class CookeryStation : MonoBehaviour, ITapeable
 {
+    [SerializeField] CookStationState cookStationState;
+    [Space]
+    [SerializeField] SpriteRenderer cookStationImage;
+    [Space]
+    [SerializeField] Sprite normalSprite;
+    [SerializeField] Sprite busySprite;
 
+    [Space]
     [SerializeField] CookingRecipe[] recipies;
     
 
@@ -20,29 +27,7 @@ public class CookeryStation : MonoBehaviour, ITapeable
     [SerializeField] int MaxCookRecipies;
     public Transform centerPoint;
 
-    private void Start()
-    {
-        //foreach (CookingRecipe recipe in recipies)
-        //{
-        //    OrderSystem.AddAvailableItems(recipe.Results.item);
-        //}
-
-    }
-
-    private void OnEnable()
-    {
-    }
-
-    private void OnDisable()
-    {
-        //foreach (CookingRecipe recipe in recipies)
-        //{
-        //    OrderSystem.RemoveAvailableItem(recipe.Results.item);
-        //}
-
-
-    }
-
+   
     public void Initialize()
     {
         
@@ -91,7 +76,15 @@ public class CookeryStation : MonoBehaviour, ITapeable
         recipiesInProgress.Remove(recipeData);
     }
 
-
+    public void ChangeBuildingVisual(bool Active)
+    {
+        cookStationImage.sprite = Active ? busySprite : normalSprite;
+    }
+}
+public enum CookStationState
+{
+    Idle,
+    Finished
 }
 [System.Serializable]
 public class CookStationData

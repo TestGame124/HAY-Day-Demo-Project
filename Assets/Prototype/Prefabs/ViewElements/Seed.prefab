@@ -134,6 +134,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df11e8d497b4f5947a962fc976d16597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CropsSelectButton
+  interactableLayers:
+    serializedVersion: 2
+    m_Bits: 119
   interactionStrategy: {fileID: 11400000, guid: 0fe493b4e31e58047a061749a5fdb26c, type: 2}
   resourcesParent: {fileID: 0}
   itemData: {fileID: 0}

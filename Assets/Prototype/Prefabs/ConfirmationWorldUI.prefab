@@ -103,6 +103,7 @@ MonoBehaviour:
   m_VerticalAlignment: 4096
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -317,7 +318,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 604
+  m_SortingOrder: 1172
   m_TargetDisplay: 0
 --- !u!114 &2036703100494390036
 MonoBehaviour:
@@ -583,6 +584,7 @@ MonoBehaviour:
   m_VerticalAlignment: 4096
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -664,6 +666,7 @@ MonoBehaviour:
   confirmBtn: {fileID: 1683276996453001740}
   cancelBtn: {fileID: 7050274301303709038}
   rotateBtn: {fileID: 3443623628873759320}
+  sellBtn: {fileID: 0}
 --- !u!1 &5215992628937230949
 GameObject:
   m_ObjectHideFlags: 0
@@ -767,6 +770,7 @@ MonoBehaviour:
   m_VerticalAlignment: 4096
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0

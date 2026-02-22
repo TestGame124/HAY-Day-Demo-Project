@@ -23,6 +23,8 @@ public class BuildingInfo : MonoBehaviour
     private Vector3 currentRotation;
     private bool currentFlippedState;
 
+    public Transform buttonsPoint;
+
     [HideInInspector]public List<Vector2Int> footprint = new List<Vector2Int>()
     {
         new Vector2Int(0,0)
@@ -113,6 +115,11 @@ public class BuildingInfo : MonoBehaviour
         if (boxCollider != null)
             boxCollider.enabled = true;
 
+    }
+
+    public Transform GetButtonsPoint()
+    {
+        return buttonsPoint;
     }
 
     public void FlipObject()

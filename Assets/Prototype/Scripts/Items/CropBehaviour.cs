@@ -6,7 +6,7 @@ public class CropBehaviour : MonoBehaviour, ITapeable
 {
     public CropState CropState = CropState.Empty;
 
-    [SerializeField] ItemDatabase itemDatabase;
+    [SerializeField] ItemData[] items;
     [SerializeField] bool seedNotNeeded;
     [Space]
 
@@ -107,8 +107,7 @@ public class CropBehaviour : MonoBehaviour, ITapeable
     private void Seed()
     {
         Vector3 screenPos = Camera.main.WorldToScreenPoint(transform.position);
-        UIController.instance.OpenCropsInfoButtons(screenPos, 
-            itemDatabase);
+        UIController.instance.OpenCropsInfoButtons(screenPos, items);
     }
 
     private void HarvestUI()

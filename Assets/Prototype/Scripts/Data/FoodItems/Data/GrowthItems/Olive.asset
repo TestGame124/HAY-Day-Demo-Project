@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78761f40f36f21f479f3c29111010172, type: 3}
+  m_Name: Olive
+  m_EditorClassIdentifier: Assembly-CSharp::GrowthableItemsData
+  itemType: 3
+  icon: {fileID: 21300000, guid: 1661f199bd53888478cd02d273f33f17, type: 3}
+  itemStagesSprites:
+  - {fileID: 1256613532, guid: 26d6b6d3b5c332544acdc0e9143a44fd, type: 3}
+  - {fileID: 282938388, guid: 26d6b6d3b5c332544acdc0e9143a44fd, type: 3}
+  - {fileID: 2084046026, guid: 26d6b6d3b5c332544acdc0e9143a44fd, type: 3}
+  - {fileID: 1636223757, guid: 26d6b6d3b5c332544acdc0e9143a44fd, type: 3}

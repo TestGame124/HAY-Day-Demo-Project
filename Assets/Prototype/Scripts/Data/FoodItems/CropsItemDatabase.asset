@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47eda8e400c859d4594ec9b44315ea88, type: 3}
   m_Name: CropsItemDatabase
   m_EditorClassIdentifier: Assembly-CSharp::FoodItemDatabase
-  Products:
-  - {fileID: 11400000, guid: 0e83f04e4c5adf94b9950ba4fbe01021, type: 2}
-  - {fileID: 11400000, guid: 1ce538f4a2d99cc49868907e9b83717d, type: 2}
+  CropsProducts:
+  - {fileID: 11400000, guid: 4abc41bce3f472a4fb8698bbd8c2e796, type: 2}
+  - {fileID: 11400000, guid: 727dba79cd1abcf4dad4bb7a5f8763bb, type: 2}
+  Recipies:
+  - {fileID: 11400000, guid: 65d8e29d2b9590e4a8abe6762067604c, type: 2}

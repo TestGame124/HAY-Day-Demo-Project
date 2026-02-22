@@ -29,7 +29,7 @@ public class CookRecipeData
         this.recipeImageName = recipe.RecipeImage.name;
         this.totalTime = recipe.TotalTimeToCook;
         this.results = recipe.Results;
-        this.inventoryName = inventory.name;
+        //this.inventoryName = inventory.name;
         this.manager = manager;
         this.inventory = inventory;
     }
@@ -37,6 +37,10 @@ public class CookRecipeData
     public IEnumerator StartCookingTimer(CookeryStation manager)
     {
         timer = totalTime;
+
+        manager.ChangeBuildingVisual(true);
+
+
         while (timer > 0)
         {
             UpdateTimer?.Invoke(timer, this);
@@ -54,8 +58,10 @@ public class CookRecipeData
             EffectsManager.Instance.SpawnItemPickerEffect(newItem.itemDataSO.icon ,manager.transform.position + offset);
 
             InventorySystem.Get(InventoryType.Barn).AddItem(newItem);
-
         }
+
+        manager.ChangeBuildingVisual(false);
+
         manager.RemoveCookRecipeData(this);
     }
 

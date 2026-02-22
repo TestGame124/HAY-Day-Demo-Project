@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
+    public LayerMask interactableLayers;
     public PlacementManager placementManager;
     public GridManager gridManager;
     public GameState CurrentGameState { get; private set; } = GameState.PlayMode;
@@ -34,9 +35,18 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetMouseButtonDown(0))
+        if(CurrentGameState == GameState.EditMode)
+            return;
+
+        HandleTapEvents();
+
+    }
+
+    private void HandleTapEvents()
+    {
+        if (Input.GetMouseButtonDown(0))
         {
-            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out RaycastHit hitInfo,Mathf.Infinity))
+            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out RaycastHit hitInfo, Mathf.Infinity, interactableLayers))
             {
                 if (hitInfo.collider != null)
                 {

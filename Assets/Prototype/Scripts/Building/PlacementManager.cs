@@ -164,7 +164,7 @@ public class PlacementManager : MonoBehaviour
         {
             shape = currentBuildingInfo.GetFootprint(currentGhost.spriteRenderer.flipX);
         }
-        // 2. Move each highlight square to the correct offset
+
         for (int i = 0; i < highlightList.Count; i++)
         {
             Vector2Int offset = shape[i];
@@ -358,7 +358,7 @@ public class PlacementManager : MonoBehaviour
         {
             isPlacing = true;
             currentButtonsUI.gameObject.SetActive(true);
-            currentButtonsUI.Initialize(currentGhost.transform
+            currentButtonsUI.Initialize(currentGhost.GetButtonsPoint()
                 , PlaceItem
                 , CancelPlacement
                 , RotateGhost

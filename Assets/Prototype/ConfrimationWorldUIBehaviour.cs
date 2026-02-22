@@ -23,7 +23,7 @@ public class ConfrimationWorldUIBehaviour : MonoBehaviour
             sellBtn.onClick.AddListener(() => optionalAction?.Invoke());
         }
 
-        transform.position = itemPos.position + new Vector3(0,2,0);
+        transform.position = itemPos.position /*+ new Vector3(0,2,0)*/;
     }
 
 }

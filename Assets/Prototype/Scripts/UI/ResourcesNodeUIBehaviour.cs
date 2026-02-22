@@ -9,9 +9,9 @@ public class ResourcesNodeUIBehaviour : MonoBehaviour
 
     [Space]
     [SerializeField] Transform itemParent;
-    internal void Initialize(ItemDatabase itemsDatabase,Action onBeginDrag, Action<GrowthableItemsData> onDrag, Action onEndDrag)
+    internal void Initialize(ItemData[] itemDatas,Action onBeginDrag, Action<GrowthableItemsData> onDrag, Action onEndDrag)
     {
-        SpawnItems(itemsDatabase, onBeginDrag, onDrag, onEndDrag);
+        SpawnItems(itemDatas, onBeginDrag, onDrag, onEndDrag);
     }
 
     public virtual void Initialize()
@@ -31,16 +31,16 @@ public class ResourcesNodeUIBehaviour : MonoBehaviour
         }        
     }
 
-    private void SpawnItems(ItemDatabase itemsDatabase, Action onBeginDrag, Action<GrowthableItemsData> onDrag, Action onEndDrag)
+    private void SpawnItems(ItemData[] itemDatas, Action onBeginDrag, Action<GrowthableItemsData> onDrag, Action onEndDrag)
     {
-        Debug.Log("Spawning Items in Resource Node UI" + itemsDatabase.CropsProducts.Length);
+        Debug.Log("Spawning Items in Resource Node UI" + itemDatas.Length);
 
         for (int i = itemParent.childCount - 1; i >= 0; i--)
         {
             Destroy(itemParent.GetChild(i).gameObject);
         }
 
-        foreach (GrowthableItemsData itemData in itemsDatabase.CropsProducts)
+        foreach (GrowthableItemsData itemData in itemDatas)
         {
             var resourceUI = Instantiate(resourceDragablePrefab, itemParent);
             resourceUI.Initialize(this, itemData, onBeginDrag, onDrag, onEndDrag);

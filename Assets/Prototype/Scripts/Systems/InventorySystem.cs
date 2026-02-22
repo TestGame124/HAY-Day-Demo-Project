@@ -32,11 +32,11 @@ public class InventorySystem : MonoBehaviour
         {
             _instances.Add(InventoryType,this);
         }
-        else
-        {
-            Debug.LogError("Multiple Inventories Found!! " + InventoryType);
-            Destroy(this);
-        }
+        //else
+        //{
+        //    Debug.LogError("Multiple Inventories Found!! " + InventoryType);
+        //    Destroy(this);
+        //}
     }
     public void Initialize()
     {
@@ -50,7 +50,7 @@ public class InventorySystem : MonoBehaviour
     {
         Item itemTemp = new Item(ItemController.GetItem<GrowthableItemsData>(ItemType.Wheat), 99);
         Item itemTemp2 = new Item(ItemController.GetItem<GrowthableItemsData>(ItemType.Date), 1);
-        Item itemTemp3 = new Item(ItemController.GetItem<GrowthableItemsData>(ItemType.Corn), 10);
+        Item itemTemp3 = new Item(ItemController.GetItem<GrowthableItemsData>(ItemType.Rice), 10);
         AddItem(itemTemp);
         AddItem(itemTemp2);
         AddItem(itemTemp3);

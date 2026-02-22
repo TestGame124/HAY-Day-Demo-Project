@@ -23,7 +23,7 @@ public class UIController : MonoBehaviour
     }
 
 
-    public void OpenCropsInfoButtons(Vector3 position, ItemDatabase itemDatabase, Action onBeginDrag = null, Action<GrowthableItemsData> onDrag = null, Action onEndDrag = null)
+    public void OpenCropsInfoButtons(Vector3 position, ItemData[] itemDatas, Action onBeginDrag = null, Action<GrowthableItemsData> onDrag = null, Action onEndDrag = null)
     {
         cropSelectionUI.gameObject.SetActive(true);
 
@@ -31,7 +31,7 @@ public class UIController : MonoBehaviour
 
         cropSelectionUI.transform.position = position + (Vector3.up * yOffset);
 
-        cropSelectionUI.Initialize(itemDatabase, onBeginDrag, onDrag, onEndDrag);
+        cropSelectionUI.Initialize(itemDatas, onBeginDrag, onDrag, onEndDrag);
     }
 
     public void OpenHarvestingUI(Vector3 position)

@@ -1,11 +1,15 @@
 
 public enum ItemType
 {
-    Corn,
+    Rice,
     Date,
     Wheat,
 
+    // Trees
+    Olive,
+
     // All Recipes 
+
     WheatFlour = 100,
 
 }

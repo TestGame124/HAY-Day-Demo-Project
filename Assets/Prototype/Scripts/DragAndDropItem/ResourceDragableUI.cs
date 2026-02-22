@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public class ResourceDragableUI : DragableBase
 {
 
+    public LayerMask interactableLayers; 
     [Header("Configuration")]
     public DragInteractionStrategy interactionStrategy; // Drag your Logic SO here
     [Space]
@@ -104,7 +105,7 @@ public class ResourceDragableUI : DragableBase
         RaycastHit hit;
 
         // We hit SOMETHING on the interactable layer
-        if (Physics.Raycast(ray, out hit, Mathf.Infinity))
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity, interactableLayers))
         {
 
             interactionStrategy.Interact(hit.collider.gameObject, itemData);

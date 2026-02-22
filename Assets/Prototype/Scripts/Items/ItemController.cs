@@ -11,6 +11,11 @@ public class ItemController : MonoBehaviour
 
 
     private static Dictionary<ItemType, ItemData> allItemsDict = new();
+
+    private void Awake()
+    {
+        Initialize();
+    }
     public void Initialize()
     {
         instance = this;
@@ -22,25 +27,29 @@ public class ItemController : MonoBehaviour
         for (int i = 0; i < itemsDatabase.Recipies.Length; i++)
         {
             RecipeItemData tempItem = itemsDatabase.Recipies[i];
-            if (!recipiesItemsDict.ContainsKey(tempItem.recipeType))
+            if (!recipiesItemsDict.ContainsKey(tempItem.itemType))
             {
-                recipiesItemsDict.Add(tempItem.recipeType, tempItem);
+                //recipiesItemsDict.Add(tempItem.itemType, tempItem);
+                allItemsDict.Add(tempItem.itemType, tempItem);
+                Debug.Log("Registered Recipe: " + tempItem.itemType);
             }
         }
 
         for (int i = 0; i < itemsDatabase.CropsProducts.Length; i++)
         {
             GrowthableItemsData tempItem = itemsDatabase.CropsProducts[i];
-            if (!cropsItemsDict.ContainsKey(tempItem.cropType))
+            if (!cropsItemsDict.ContainsKey(tempItem.itemType))
             {
-                cropsItemsDict.Add(tempItem.cropType, tempItem);
+                //cropsItemsDict.Add(tempItem.itemType, tempItem);
+                allItemsDict.Add(tempItem.itemType, tempItem);
+                Debug.Log("Registered Crop: " + tempItem.itemType);
             }
         }
     }
 
     public static RecipeItemData GetRecipe(ItemType type)
     {
-        if (!recipiesItemsDict.ContainsKey(type))
+        if (!allItemsDict.ContainsKey(type))
         {
             Debug.LogError("No Item Type Of : " + type + " Found!");
             return null;
@@ -49,7 +58,7 @@ public class ItemController : MonoBehaviour
     }
     public static GrowthableItemsData GetCropItem(ItemType type)
     {
-        if (!cropsItemsDict.ContainsKey(type))
+        if (!allItemsDict.ContainsKey(type))
         {
             Debug.LogError("No Item Type Of : " + type + " Found!");
             return null;
@@ -78,8 +87,17 @@ public class ItemController : MonoBehaviour
     }
 
 
-    public int GetFoodItemsCount()
+    public int GetCropsItemsCount()
     {
         return itemsDatabase.CropsProducts.Length;
+    }
+    public int GetRecipiesItemsCount()
+    {
+        return itemsDatabase.Recipies.Length;
+    }
+
+    public int GetAllItemsCount()
+    {
+        return allItemsDict.Count;
     }
 }

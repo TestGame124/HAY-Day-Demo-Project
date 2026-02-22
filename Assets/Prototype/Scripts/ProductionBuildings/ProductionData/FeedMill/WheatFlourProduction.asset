@@ -16,11 +16,11 @@ MonoBehaviour:
   TotalTimeToCook: 30
   Ingrediants:
   - item:
-      itemDataSO: {fileID: 11400000, guid: 0e83f04e4c5adf94b9950ba4fbe01021, type: 2}
+      itemDataSO: {fileID: 11400000, guid: 727dba79cd1abcf4dad4bb7a5f8763bb, type: 2}
       itemsAmount: 1
     Amount: 0
   - item:
-      itemDataSO: {fileID: 11400000, guid: 1ce538f4a2d99cc49868907e9b83717d, type: 2}
+      itemDataSO: {fileID: 11400000, guid: 4abc41bce3f472a4fb8698bbd8c2e796, type: 2}
       itemsAmount: 1
     Amount: 2
   Results:
