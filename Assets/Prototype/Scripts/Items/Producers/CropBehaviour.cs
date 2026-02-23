@@ -2,27 +2,14 @@ using NUnit.Framework.Interfaces;
 using System.Collections;
 using UnityEngine;
 
-public class CropBehaviour : MonoBehaviour, ITapeable
+public class CropBehaviour : ProducerBase
 {
-    public CropState CropState = CropState.Empty;
 
-    [SerializeField] ItemData[] items;
     [SerializeField] bool seedNotNeeded;
-    [Space]
-
-    public GrowthableItemsData cropData;
     [Space]
     public SpriteRenderer mainPlant;
     [Space]
-    public float growthRate = 1.0f;
-    public float maxTimeToMature = 10.0f;
-
-    Coroutine growthCoroutine;
-
-    [Header("VFX")]
-    [SerializeField] GameObject effectOnMature;
-
-
+    public GrowthableItemsData cropData;
     private void OnEnable()
     {
         if (seedNotNeeded)
@@ -36,33 +23,33 @@ public class CropBehaviour : MonoBehaviour, ITapeable
         if(growthCoroutine != null)
             StopCoroutine(growthCoroutine);
 
-        if (CropState != CropState.Empty)
+        if (ProducerState != ProducerState.Empty)
             return false;
 
         cropData = foodItem;
 
         mainPlant.gameObject.SetActive(true);
 
-        growthCoroutine = StartCoroutine(Grow());
+        growthCoroutine = StartCoroutine(InProcess());
         return true;
     }
 
-    private IEnumerator Grow()
+    protected override IEnumerator InProcess()
     {
         float elapsedTime = 0f;
         int growthSage = 1;
         mainPlant.sprite = cropData.itemStagesSprites[growthSage - 1];
 
-        CropState = CropState.InProgress;
+        ProducerState = ProducerState.InProgress;
 
         int totalStages = cropData.itemStagesSprites.Length;
 
-        while (elapsedTime < maxTimeToMature)
+        while (elapsedTime < maxTimeToGetReady)
         {
             // Simulate growth over time
             elapsedTime += Time.deltaTime * growthRate;
 
-            float stagesInPercent = maxTimeToMature/ totalStages;
+            float stagesInPercent = maxTimeToGetReady/ totalStages;
 
             if (elapsedTime >= stagesInPercent * growthSage && growthSage < totalStages)
             {
@@ -75,28 +62,21 @@ public class CropBehaviour : MonoBehaviour, ITapeable
 
         ChangePlantState(growthSage);
 
-        CropState = CropState.ReadyToHarvest;
+        ProducerState = ProducerState.ReadyToHarvest;
+
         effectOnMature.SetActive(true);
-        // Crop has matured
-        Debug.Log("Crop has matured!");
     }
 
-    private void ChangePlantState(int stage)
-    {
-        for (int i = 0; i < stage; i++)
-        {
-            mainPlant.sprite = cropData.itemStagesSprites[stage - 1];
-        }
-    }
-    public void OnTap()
+   
+    public override void OnTap()
     {
 
-        switch(CropState)
+        switch(ProducerState)
         {
-            case CropState.Empty:
+            case ProducerState.Empty:
                 Seed();
                 break;
-            case CropState.ReadyToHarvest:
+            case ProducerState.ReadyToHarvest:
                 //Harvest();
                 HarvestUI();
                 break;
@@ -117,37 +97,38 @@ public class CropBehaviour : MonoBehaviour, ITapeable
         UIController.instance.OpenHarvestingUI(screenPos);
     }
 
-    public void Harvest()
+    public override void Gather()
     {
-        if(CropState != CropState.ReadyToHarvest)
+        if(ProducerState != ProducerState.ReadyToHarvest)
             return;
-        mainPlant.gameObject.SetActive(false);
-        // Reset crop
-        CropState = CropState.Empty;
 
+        ResetState();
+
+        
         EffectsManager.Instance.SpawnItemPickerEffect(cropData.icon, transform.position + Vector3.up * 0.5f);
-        effectOnMature.SetActive(false);
 
         InventorySystem barn = InventorySystem.Get(InventoryType.Crops_Inventory);
-
         barn?.AddItem(new Item(cropData, 1));
 
 
         if (seedNotNeeded)
-        {
             Plant(cropData);
+    }
+
+    private void ResetState()
+    {
+        mainPlant.gameObject.SetActive(false);
+        ProducerState = ProducerState.Empty;
+        effectOnMature.SetActive(false);
+
+    }
+
+    private void ChangePlantState(int stage)
+    {
+        for (int i = 0; i < stage; i++)
+        {
+            mainPlant.sprite = cropData.itemStagesSprites[stage - 1];
         }
     }
-    
-
-    
-    public bool IsEmpty() => CropState == CropState.Empty;
-
 }
 
-public enum CropState
-{
-    Empty,
-    InProgress,
-    ReadyToHarvest
-}

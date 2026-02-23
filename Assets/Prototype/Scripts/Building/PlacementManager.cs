@@ -2,11 +2,13 @@ using UnityEngine;
 using System.Collections.Generic;
 using System;
 using UnityEngine.EventSystems;
+using TMPro;
 
 public class PlacementManager : MonoBehaviour
 {
     [Header("UI")]
     private ConfrimationWorldUIBehaviour currentButtonsUI;
+
     [Space]
     [SerializeField] ConfrimationWorldUIBehaviour SelectedItemUI;
     [SerializeField] ConfrimationWorldUIBehaviour confirmationItemUI;
@@ -217,7 +219,11 @@ public class PlacementManager : MonoBehaviour
 
                 }
             }
-            CancelPlacement();
+            else
+            {
+                item.StartBuilding();
+            }
+                CancelPlacement();
         }
     }
 

@@ -84,7 +84,7 @@ MonoBehaviour:
   isPlaced: 0
   boxCollider: {fileID: 0}
   isSprite: 0
-  spriteRenderer: {fileID: 6510248599088841874}
+  spriteRenderer: {fileID: 0}
   gridObjects: {fileID: 6015463684808743821}
   buttonsPoint: {fileID: 9220087287063331073}
   footprint: []

@@ -29,7 +29,7 @@ public class UIController : MonoBehaviour
 
         float yOffset = 150;
 
-        cropSelectionUI.transform.position = position + (Vector3.up * yOffset);
+        cropSelectionUI.transform.position = position /*+ (Vector3.up * yOffset)*/;
 
         cropSelectionUI.Initialize(itemDatas, onBeginDrag, onDrag, onEndDrag);
     }
@@ -39,7 +39,7 @@ public class UIController : MonoBehaviour
         harvestingUI.gameObject.SetActive(true);
         float yOffset = 150;
 
-        harvestingUI.transform.position = position + (Vector3.up * yOffset);
+        harvestingUI.transform.position = position /*+ (Vector3.up * yOffset)*/;
         harvestingUI.Initialize();
     }
 

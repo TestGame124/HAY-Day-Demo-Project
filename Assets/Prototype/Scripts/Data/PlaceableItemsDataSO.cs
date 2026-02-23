@@ -6,11 +6,14 @@ public class PlaceableItemsDataSO : ScriptableObject
 {
     public BuildingInfo ItemPrefab;
     public Sprite Icon;
-
+    [Space]
+    public int ConstructionTimeInSeconds;
     [Space]
     public int LevelRequirement;
     public int MaxAllowed;
     [Space]
     public int Price;
     public int PointsReward;
+
+    public bool CanPlaceImmedietly() => ConstructionTimeInSeconds == 0;
 }

@@ -1,4 +1,5 @@
 using Coffee.UIEffects;
+using DG.Tweening;
 using System;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -78,7 +79,8 @@ public class ResourceDragableUI : DragableBase
     {
         if (dragIcon != null)
         {
-            dragIcon.transform.position = Input.mousePosition;
+            dragIcon.transform.DOMove(Input.mousePosition, 0.2f).SetUpdate(true);
+            //dragIcon.transform.position = Input.mousePosition;
             this.resourcesParent.ToggleNode(false);
             PerformRaycast();
             //onDrag?.Invoke(itemData);

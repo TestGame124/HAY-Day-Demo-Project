@@ -29,26 +29,19 @@ public class ItemPickEffectBehaviour : MonoBehaviour
             if (mat.HasProperty("_Color")) mat.SetColor("_Color", Color.white);
             if (mat.HasProperty("_BaseColor")) mat.SetColor("_BaseColor", Color.white);
             mat.SetTexture("_BaseMap", sprite.texture);
-            
+
             renderer.material = mat;
 
         }
-        var graphic = uiParticles.GetComponent<UnityEngine.UI.Graphic>();
-        if (graphic != null)
-        {
-            graphic.SetAllDirty();
-            UnityEngine.UI.CanvasUpdateRegistry.RegisterCanvasElementForGraphicRebuild(graphic);
-        }
-        Canvas.ForceUpdateCanvases();
-        
+      
         uiParticles.transform.SetParent(UIController.instance.mainCanvas.transform, true);
 
         float destroyDelay = 4f;
         DOVirtual.DelayedCall(destroyDelay, () =>
         {
-            
+
             Destroy(uiParticles.gameObject);
-                Destroy(gameObject);
+            Destroy(gameObject);
         });
     }
 
